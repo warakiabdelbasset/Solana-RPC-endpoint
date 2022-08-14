@@ -72,10 +72,30 @@ Cool, go to `http:localhost:8080/health` and you should see an “OK” response
 
 
 Alright, so now you have an agnostic docker container that can be uploaded into any cloud provider. But how do you upload to GCP? Well, this isn’t the easiest thing in the world, you need to install `gcloud` in your terminal, then you need to `build` your container image, then you need to `run` it to test that it’s fine, after that, you’ll need to tag it and upload it into your account’s Google Cloud Registry, then, go to Google Cloud Registry and simply deploy it to Google Cloud Run.
-
+<p align="center">
+  <img src="https://github.com/warakiabdelbasset/RPC_SOL/blob/master/image1.png">
+</p>
 The first time this process will fail at the end because of missing environment variables, and that’s fine, just go to your Google Cloud Run service, find your container and “Edit and Deploy” a new Revision.
+<p align="center">
+  <img src="https://github.com/warakiabdelbasset/RPC_SOL/blob/master/image4.png">
+</p>
+Lastly set up proper environment variables here.
+<p align="center">
+  <img src="https://github.com/warakiabdelbasset/RPC_SOL/blob/master/image3.png">
+</p>
 
+Alright, you should be good to save and run now. Now you can either use the url provided by Google or set up another service for it.
 
+One hack to make this process 10x easier is to just call the deployment suite pointing to your public repository in Github: https://deploy.cloud.run/?git_repo=https://github.com/kevinrodriguez-io/solana-figment-rpc-endpoint-cors-gcr
+
+And it works really good.
+
+Just remember that this will also fail during the first time because it’s lacking env variables, so set them up and run the service. Oh, and also be mindful about the values you enter here:
+
+<p align="center">
+  <img src="https://github.com/warakiabdelbasset/RPC_SOL/blob/master/image2.png">
+</p>
+Alright, after this process is done you will end up with an endpoint that looks like this: https://solana-figment-rpc-endpoint-cors-gcr-IDENTIFIER-ue.a.run.app , congratulations! You can use it as a drop-in replacement now. 🥳
 
 
 
