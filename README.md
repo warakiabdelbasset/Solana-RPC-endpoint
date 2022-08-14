@@ -72,6 +72,7 @@ Cool, go to `http:localhost:8080/health` and you should see an “OK” response
 
 
 Alright, so now you have an agnostic docker container that can be uploaded into any cloud provider. But how do you upload to GCP? Well, this isn’t the easiest thing in the world, you need to install `gcloud` in your terminal, then you need to `build` your container image, then you need to `run` it to test that it’s fine, after that, you’ll need to tag it and upload it into your account’s Google Cloud Registry, then, go to Google Cloud Registry and simply deploy it to Google Cloud Run.
+
 The first time this process will fail at the end because of missing environment variables, and that’s fine, just go to your Google Cloud Run service, find your container and “Edit and Deploy” a new Revision.
 
 
