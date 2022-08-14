@@ -7,3 +7,17 @@
 - Maybe you don’t want to mess an NFT drop.
 - Too many Metaplex shops use the same RPC endpoint ending up in slower response times.
 
+###### Step by step
+Alright so this service is going to be based in nodejs so I suggest you to have both Node.js, Yarn and Docker installed already. There’s plenty of guides on how to do that.
+
+1. Register on DataHub and create your own Solana services account https://datahub.figment.io/services/solana
+2. Create a `Dockerfile` to specify deployment steps for our service
+``
+FROM node:alpine
+WORKDIR /usr/src/app
+COPY package.json .
+COPY yarn.lock .
+RUN yarn install
+COPY . .
+CMD [ "yarn", "start" ]
+``
