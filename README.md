@@ -14,9 +14,12 @@ Alright so this service is going to be based in nodejs so I suggest you to have 
 2. Create a `Dockerfile` to specify deployment steps for our service
 ``` Ruby
 FROM node:alpine
+
 WORKDIR /usr/src/app
+
 COPY package.json .
 COPY yarn.lock .
+
 RUN yarn install
 COPY . .
 CMD [ "yarn", "start" ]
