@@ -25,6 +25,6 @@ COPY . .
 CMD [ "yarn", "start" ]
 ```
 3. Run `yarn init` and then add the following dependencies:
-```
+``` Ruby
 $ yarn add dotenv express http-proxy-middleware
 ```
